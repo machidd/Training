@@ -4,13 +4,17 @@
 10 001 番目の素数を求めよ.
 """
 
-ans = []
-for i in range(2, 10000):
+ans = [2]
+for i in range(2, 50000):
+    if i % 2 == 0:
+        continue
     flag = True
     for j in range(2, i):
+        if j % 2 == 0:
+            continue
         if i % j ==0:
             flag = False
     if flag == True:
         ans.append(i)
-print(ans)
-#print(ans[1000])
+#print(ans)
+print(ans[10000])
