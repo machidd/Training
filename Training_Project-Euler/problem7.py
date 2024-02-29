@@ -1,7 +1,6 @@
 """
 素数を小さい方から6つ並べると 2, 3, 5, 7, 11, 13 であり, 6番目の素数は 13 である.
 10 001 番目の素数を求めよ.
-"""
 
 ans = [2]
 for i in range(2, 50000):
@@ -17,3 +16,6 @@ for i in range(2, 50000):
         ans.append(i)
 #print(ans)
 print(ans[10000])
+"""
+from sympy import prime
+print(prime(10001))
