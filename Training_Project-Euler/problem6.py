@@ -23,6 +23,6 @@ for i in range(1,101,1):
     a = i * i
     nijo.append(a)
     i += 1
-nijonijo = sum(nijo)
+nijowa = sum(nijo)
 
-print(wawa - nijonijo)
+print(wawa - nijowa)
