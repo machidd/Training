@@ -3,3 +3,8 @@
 
 200万以下の全ての素数の和を求めよ.
 """
+from sympy import sieve
+
+list = [i for i in sieve.primerange(2,2000000)]
+ans = sum(list)
+print(ans)
