@@ -13,5 +13,3 @@ for i in range(1000):
     if i % 15 == 0:
         C -= i
 print(A + B + C)
-
-print(A + B + C)
