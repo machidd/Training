@@ -15,14 +15,12 @@ nijo = []
 
 for i in range(1,101,1):
     wa.append(i)
-    i += 1
 wawa = sum(wa)
 wawa = wawa * wawa
 
 for i in range(1,101,1):
     a = i * i
     nijo.append(a)
-    i += 1
 nijowa = sum(nijo)
 
 print(wawa - nijowa)
