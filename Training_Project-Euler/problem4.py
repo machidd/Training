@@ -3,13 +3,18 @@
 
 a = 999
 b = 999
+c = []
+while b > 99:
+    while a > 99:
+        ans = str(a * b)
+        rev_ans = ans[::-1]
+        if ans == rev_ans:
+            c.append(int(ans))
+            break
+        else:
+            a -= 1
+    a = 999
+    b -= 1
 
-while a > 0:
-    ans = str(a * b)
-    length = len(ans)
-    if length < 6:
-        break
-    #(ans[0]) == int(ans[5]) 
-    if int(ans[1]) == int(ans[4]):
-        print(ans)
-    a -= 1
+c.sort(reverse=True)
+print(c[0])
