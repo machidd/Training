@@ -25,7 +25,8 @@
 
 上の 20×20 の格子のうち, 上下左右斜めのいずれかの方向で連続する4つの数字の積のうち最大のものはいくつか?
 """
-into = '08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\
+into = \
+'08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\
  49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00\
  81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65\
  52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91\
@@ -47,7 +48,41 @@ into = '08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\
  01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48'
 
 base = into.split()
-a = 0
-print(base)
+all_pattern = []
+line = 0
+
+"""
+0 21 42 63
+3 22 41 60
+60 41 22 3
+63 42 21 0
+"""
+
+#右下方向検索
+for i in range(17):
+    for i in range(0,17):
+        all_pattern.append(int(base[i + line]) * int(base[i + line + 21]) * int(base[i + line + 42]) * int(base[i + line + 63]))
+    line += 20
+line = 0
+
+#左下方向検索
+for i in range(17):
+    for i in range(3,20):
+        all_pattern.append(int(base[i + line]) * int(base[i + line + 19]) * int(base[i + line + 38]) * int(base[i + line + 57]))
+    line += 20
+line = 0
+
+all_pattern.sort(reverse=True)
+print(all_pattern[0])
+
+"""
+右下 0〜17 17行目まで
+左下 4〜20 17行目まで
+右上 0〜17 4行目から下
+左上 4〜20 4行目から下
+重複はするが一旦無視
+
+なんか答えが違う
 
 #print(int(base[a]) * int(base[a + 21] * int(base[a + 42]) * int(base[a + 63])))
+"""
