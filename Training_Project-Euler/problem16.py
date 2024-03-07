@@ -15,4 +15,3 @@ for i in range(len(newj)):
     ans += int(newj[i])
 
 print(ans)
-
