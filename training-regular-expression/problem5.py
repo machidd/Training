@@ -9,4 +9,3 @@ given_text = "このサーバーのIPアドレスは192.168.1.1です。別の�
 word = r"\d+.\d+.\d+.\d+"
 ans = re.findall(word ,given_text)
 print(ans)
-
