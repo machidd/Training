@@ -14,3 +14,30 @@
 
 注意: 数列の途中で100万以上になってもよい
 """
+num = 13
+
+def get_conrad(num):
+    count = 0
+    while True:
+        count += 1
+        if num % 2 == 0:
+            num /= 2
+        else:
+            num = num * 3 + 1
+        if num == 1:
+            count += 1
+            break
+    return count
+
+max_count = 0
+max_num = 0
+for i in range(2,1000000):
+    conradcount = get_conrad(i)
+    if conradcount > max_count:
+        max_count = conradcount
+        max_num = i
+print(max_count, max_num)
+
+"""
+999999から操作を行う
+"""

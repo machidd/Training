@@ -1,4 +1,6 @@
 """
+解けているが計算量が終わっているので効率化の勉強する
+
 三角数の数列は自然数の和で表され、7番目の三角数は1 + 2 + 3 + 4 + 5 + 6 + 7 = 28である
 三角数の最初の10項は:
 　1,3,6,10,15,21,28,36,45,55 ...
@@ -17,12 +19,35 @@
 a = 0
 b = []
 c = 0
-d = []
+ans = []
+flag = True
 
-for i in range(1,10,1):
-    a += i
-    b.append(a)
+max_num = 500
+count = 0
 
+while True:
+    count += 1
+    a += count
+    ans = 0
+
+    for i in range(a):
+        if a % (i+1) == 0:
+            ans += 1
+    if ans > max_num:
+        print(a)
+        break
+
+"""
+while flag == True:
+    for i in range(1, len(b)+1):
+        if b[] % i == 0:
+            ans.append(i)
+            print(i)
+        if len(ans) > 500:
+            print(i)
+            flag = False
+print(len(ans))
+"""
 """
 for i in range(1,10):
     if int(b[c]) % i == 0:
@@ -31,6 +56,8 @@ for i in range(1,10):
 
 print(d)
 """
+
+
 
 
 
