@@ -26,3 +26,48 @@
 
 注: ここではたかだか 16384 通りのルートしかないので, すべてのパターンを試すこともできる. Problem 67 は同じ問題だが100行あるので, 総当りでは解けない. もっと賢い方法が必要である.
 """
+
+import numpy as np
+
+indata = "75 "\
+"95 64 "\
+"17 47 82 "\
+"18 35 87 10 "\
+"20 04 82 47 65 "\
+"19 01 23 75 03 34 "\
+"88 02 77 73 07 63 67 "\
+"99 65 04 28 06 16 70 92 "\
+"41 41 26 56 83 40 80 70 33 "\
+"41 48 72 33 47 32 37 16 94 29 "\
+"53 71 44 65 25 43 91 52 97 51 14 "\
+"70 11 33 28 77 73 17 78 39 68 17 57 "\
+"91 71 52 38 17 14 91 43 58 50 27 29 48 "\
+"63 66 04 68 89 53 67 30 73 16 69 87 40 31 "\
+"04 62 98 27 23 09 70 98 73 93 38 53 60 04 23 "
+N = 15
+nums = indata.split()
+triarr = []
+top = 0
+for i in range(N):
+  top += i 
+  triarr.append(list(map(int,nums[top:top+i+1])))
+
+def createnewlist(x):
+  newtriarr = []
+  repeat = x
+  for i in range(repeat):
+    comp1 = triarr[repeat][i]
+    comp2 = triarr[repeat][i + 1]
+    num = triarr[repeat - 1][i]
+    if comp1 > comp2:
+      num += comp1
+    else:
+      num += comp2
+    newtriarr.append(num)
+    triarr[repeat - 1][i] = num
+  return newtriarr
+
+for i in range(14, 0 ,-1):
+  createnewlist(i)
+
+print(triarr[0][0])
