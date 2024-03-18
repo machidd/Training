@@ -26,9 +26,6 @@
 
 注: ここではたかだか 16384 通りのルートしかないので, すべてのパターンを試すこともできる. Problem 67 は同じ問題だが100行あるので, 総当りでは解けない. もっと賢い方法が必要である.
 """
-
-import numpy as np
-
 indata = "75 "\
 "95 64 "\
 "17 47 82 "\
@@ -52,22 +49,18 @@ for i in range(N):
   top += i 
   triarr.append(list(map(int,nums[top:top+i+1])))
 
-def createnewlist(x):
-  newtriarr = []
-  repeat = x
-  for i in range(repeat):
-    comp1 = triarr[repeat][i]
-    comp2 = triarr[repeat][i + 1]
-    num = triarr[repeat - 1][i]
+def createnewlist(repeat_num):
+  for i in range(repeat_num):
+    comp1 = triarr[repeat_num][i]
+    comp2 = triarr[repeat_num][i + 1]
+    num = triarr[repeat_num - 1][i]
     if comp1 > comp2:
       num += comp1
     else:
       num += comp2
-    newtriarr.append(num)
-    triarr[repeat - 1][i] = num
-  return newtriarr
+    triarr[repeat_num - 1][i] = num
 
-for i in range(14, 0 ,-1):
-  createnewlist(i)
+for line_num in range(14, 0 ,-1):
+  createnewlist(repeat_num=line_num)
 
 print(triarr[0][0])
